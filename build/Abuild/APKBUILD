@@ -4,7 +4,7 @@
 pkgname=sdl2-ttf
 _pkgname=SDL_ttf
 pkgver=2.0.18
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="Support for TrueType (.ttf) font files with Simple Directmedia Layer."
 url="https://libsdl.org/"
 arch="all"
@@ -57,6 +57,7 @@ package() {
     DESTDIR="$pkgdir" cmake --install build-shared
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 b278f1caf3ab9f3206f2304047083002f5622d92b6ab07c85ebe898640044b9c726b18dc5c2bdd9438d2b4d3b5b2cbf91c0bfddbb6a81b6786eed93d4237af30  sdl2-ttf-2.0.18-r1.tar.gz
 "
